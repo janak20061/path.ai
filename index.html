@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <section class="sidebar">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <h3>path<span>.ai</span></h3>
+            </div>
+            <div class="workspace">
+                <p>WORKSPACE</p>
+                <ul>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> All roadmaps</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Explore templates</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"/></svg> Recently viewed</li>
+                </ul>
+            </div>
+            <div class="yourProjects">
+                <p>YOUR PROJECTS</p>
+                <!-- Dynamic projects via JS -->
+            </div>
+            <div class="plans">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                <h4>Make room for more</h4>
+                <p>You're using 3 of 5 free roadmaps.</p>
+                <a href="#">Explore plans <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+            </div>
+        </section>
+
+        <!-- TOP NAVIGATION -->
+        <nav>
+            <div id="current-path">
+                <p>Workspace / <span>Roadmaps</span></p> 
+            </div>
+            <div class="notification">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <div class="helpCenter">
+                <a href="#">Help Center <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+            </div>
+        </nav>
+
+        <!-- HERO HEADER (INPUT SECTION) -->
+        <header>
+            <div class="content">
+                <div class="ai-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                <p>YOUR NEXT BIG THING, UNPACKED</p>
+                <h1>Turn your idea into<br><span>a clear path forward.</span></h1>
+                <p>Every great project starts somewhere. Tell us what you're dreaming up.</p>
+            </div>
+            <div class="input-box">
+                <input type="text" id="roadmap-input" placeholder="e.g. A habit tracker that makes consistency feel rewarding">
+                <button id="generate-btn">Generate roadmap →</button>
+            </div>
+        </header>
+
+        <!-- MAIN DASHBOARD -->
+        <main>
+            <!-- LEFT: IDEAS LIST -->
+            <div class="ideas-section">
+                <p>YOUR IDEAS</p>
+                <h3>In the making</h3>
+                
+                <div class="search-filter-bar">
+                    <button id="filter-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg> Filter</button>
+                    <input type="text" id="search-roadmaps" placeholder="Search your roadmaps...">
+                </div>
+
+                <div class="roadmaps-cards">
+                    <!-- Cards injected by JS -->
+                </div>
+
+                <div class="start-new">
+                    <a href="#"><span class="plus-box">+</span> Start with a new idea</a>
+                </div>
+            </div>
+
+            <!-- RIGHT: VISUAL ROADMAP PREVIEW -->
+            <div class="roadmap-preview">
+                <div class="preview-header">
+                    <div>
+                        <p class="tag">Visual Roadmap</p>
+                        <h3 id="preview-title">A habit tracker that makes consistency feel rewarding</h3>
+                        <p>Your idea, broken into achievable steps</p>
+                    </div>
+                    <div class="preview-meta">
+                        <p id="duration-to-finish"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~2–3 weeks</p>
+                        <p id="complete-counter"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 0 of 4 complete</p>
+                        <a href="#">Share map ↗</a>
+                    </div>
+                </div>
+                
+                <div class="generated-roadmap" id="steps-container">
+                    <!-- Generated Roadmap Nodes injected by JS -->
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <div><p>Made for the builders, the tinkerers, the “what if?” people.</p></div>
+            <div><p>PATH.AI · 2026</p></div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
